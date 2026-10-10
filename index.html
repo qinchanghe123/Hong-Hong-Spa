@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#241e28">
+  <meta name="description" content="Hong Hong Spa in Fort Lauderdale, Florida. Explore a thoughtfully curated massage menu, view prices, and call to plan a quiet moment for yourself.">
+  <meta property="og:title" content="Hong Hong Spa | A Quiet Moment, Just for You">
+  <meta property="og:description" content="Massage & relaxation in Fort Lauderdale. 30 minutes $50 · 60 minutes $80. Call 954-931-8616.">
+  <title>Hong Hong Spa | Fort Lauderdale Massage & Wellness</title>
+  <script>document.documentElement.classList.add("js-motion");</script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* =========================================================
+       HONG HONG SPA / BOUTIQUE WELLNESS VISUAL SYSTEM
+       Standalone responsive site: no JavaScript frameworks
+       ========================================================= */
+    :root {
+      --ink: #292329;
+      --plum: #241e28;
+      --plum-2: #362a39;
+      --plum-3: #49394a;
+      --cream: #f6f1ea;
+      --cream-2: #eee5da;
+      --paper: #fffcf8;
+      --gold: #c9ab80;
+      --gold-light: #e3c9a4;
+      --muted: #766e70;
+      --line: rgba(51, 39, 49, .13);
+      --serif: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+      --sans: "Manrope", "Helvetica Neue", Arial, sans-serif;
+      --wrap: 1240px;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 95px; }
+    body { margin: 0; background: var(--cream); color: var(--ink); font: 400 14px/1.8 var(--sans); overflow-x: hidden; }
+    button, input, select, textarea { font: inherit; }
+    button, a { -webkit-tap-highlight-color: transparent; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; }
+    button { cursor: pointer; }
+    ::selection { background: #c2a883; color: #221b24; }
+    :focus-visible { outline: 3px solid #e0b66f; outline-offset: 4px; }
+    .container { width: min(var(--wrap), calc(100% - 84px)); margin-inline: auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 13px; color: #a98d69; font-size: 10px; letter-spacing: .28em; font-weight: 700; text-transform: uppercase; line-height: 1.6; }
+    .eyebrow::before { content: ""; width: 29px; height: 1px; background: currentColor; flex: 0 0 auto; }
+    .eyebrow-light { color: #e4c8a1; }
+    .section-title { font: 500 clamp(52px, 6.2vw, 88px)/.97 var(--serif); letter-spacing: -.04em; margin: 18px 0 24px; }
+    .section-title em, .serif-em { color: #987753; font-weight: 400; }
+    .section-description { font-size: 14px; line-height: 2; max-width: 540px; color: var(--muted); }
+    .section-space { padding-block: clamp(92px, 10vw, 146px); }
+    .small-rule { display: inline-block; width: 60px; height: 1px; background: var(--gold); }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 16px; min-height: 53px; padding: 15px 26px; font-size: 10px; font-weight: 700; letter-spacing: .19em; text-transform: uppercase; border: 1px solid transparent; transition: background .28s ease, color .28s ease, border-color .28s ease, transform .28s ease; white-space: nowrap; }
+    .btn:hover { transform: translateY(-2px); }
+    .btn-gold { background: #c9ab80; color: #252028; }
+    .btn-gold:hover { background: #e3c49a; }
+    .btn-outline-light { background: transparent; border-color: rgba(245, 235, 224, .6); color: white; }
+    .btn-outline-light:hover { background: rgba(255,255,255,.13); }
+    .btn-outline-dark { border-color: #a89175; color: var(--ink); background: transparent; }
+    .btn-outline-dark:hover { background: var(--plum); border-color: var(--plum); color: white; }
+    .btn svg { width: 16px; height: 16px; flex: 0 0 auto; }
+    .hide-visually { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+    /* Navigation */
+    .site-header { height: 94px; position: fixed; z-index: 100; top: 0; left: 0; right: 0; color: white; border-bottom: 1px solid rgba(255,255,255,.2); transition: background .3s, box-shadow .3s, height .3s; }
+    .site-header.scrolled, .site-header.menu-open { background: rgba(31, 25, 34, .97); box-shadow: 0 8px 32px rgba(17, 12, 21, .17); height: 82px; border-color: rgba(255,255,255,.08); backdrop-filter: blur(18px); }
+    .nav-wrap { height: 100%; display: flex; align-items: center; justify-content: space-between; gap: 25px; }
+    .brand { display: flex; align-items: center; gap: 13px; flex: 0 0 auto; min-width: 190px; }
+    .brand-mark { height: 41px; width: 41px; display: grid; place-items: center; border: 1px solid rgba(232,202,159,.8); border-radius: 50%; color: #e9d2b0; }
+    .brand-mark svg { height: 24px; width: 24px; }
+    .brand-name { display: block; font: 500 27px/1.06 var(--serif); letter-spacing: .005em; }
+    .brand-type { display: block; margin-top: 5px; letter-spacing: .37em; font-size: 8px; color: #dfc49e; font-weight: 700; }
+    .nav-links { display: flex; align-items: center; gap: clamp(13px, 1.55vw, 28px); }
+    .nav-links a { color: #f7f0ed; font-size: 10px; font-weight: 600; letter-spacing: .045em; transition: color .25s; }
+    .nav-links a:hover, .nav-links a:focus-visible { color: var(--gold-light); }
+    .nav-call { font-size: 10px; white-space: nowrap; font-weight: 700; letter-spacing: .12em; padding: 13px 18px; border: 1px solid rgba(228, 204, 171, .72); transition: .25s; }
+    .nav-call:hover { background: var(--gold); color: var(--ink); }
+    .menu-toggle { display: none; align-items: center; justify-content: center; border: 1px solid rgba(231,209,183,.45); border-radius: 0; width: 43px; height: 43px; color: white; background: transparent; }
+    .menu-toggle svg { width: 22px; height: 22px; }
+    /* Hero */
+    .hero { position: relative; min-height: min(890px, 100svh); min-height: max(690px, 100svh); display: flex; align-items: center; overflow: hidden; background: #332a32; color: white; }
+    .hero-slides, .hero-shade, .hero-slides .hero-slide { position: absolute; inset: 0; }
+    .hero-slide { background-size: cover; background-position: center; opacity: 0; transform: scale(1.045); transition: opacity 1.6s ease, transform 8s ease; }
+    .hero-slide.active { opacity: 1; transform: scale(1); }
+    .hero-shade { background: linear-gradient(90deg,rgba(25,19,27,.89) 0%, rgba(25,19,27,.73) 36%, rgba(25,19,27,.29) 82%), linear-gradient(0deg,rgba(20,15,23,.62),transparent 40%,rgba(20,15,23,.12)); }
+    .hero::after { content: ""; position: absolute; top: 18%; right: 5%; width: 35vw; max-width: 530px; aspect-ratio: 1; border: 1px solid rgba(247,218,185,.13); border-radius: 50%; pointer-events: none; box-shadow: 0 0 0 95px rgba(220,186,147,.025), 0 0 0 188px rgba(220,186,147,.016); }
+    .hero-content { position: relative; z-index: 2; padding-top: 105px; padding-bottom: 132px; }
+    .hero h1 { font: 400 clamp(76px, 9.5vw, 140px)/.86 var(--serif); letter-spacing: -.055em; margin: 31px 0 27px; max-width: 860px; }
+    .hero h1 em { font-weight: 400; color: #e7cda4; }
+    .hero-blurb { max-width: 475px; margin: 0; color: #f0e8e2; font-size: 13px; line-height: 2.15; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 13px; margin-top: 40px; }
+    .hero-meta { position: absolute; bottom: 31px; left: 0; right: 0; z-index: 3; }
+    .hero-meta .container { display: flex; justify-content: space-between; align-items: end; gap: 20px; }
+    .hero-meta-info { display: flex; gap: 40px; }
+    .hero-meta-item .key { display: block; font-size: 8px; font-weight: 700; letter-spacing: .23em; text-transform: uppercase; color: #debe91; }
+    .hero-meta-item .value { display: block; margin-top: 5px; font-size: 11px; color: #f7f2ec; }
+    .hero-progress { display: flex; align-items: center; gap: 8px; padding-bottom: 7px; }
+    .hero-progress button { background: rgba(255,255,255,.38); border: 0; width: 26px; height: 2px; padding: 0; transition: width .3s, background .3s; }
+    .hero-progress button.active { width: 48px; background: #e4c69d; }
+    .hero-progress button:focus-visible { outline-offset: 7px; }
+    /* Calm strip */
+    .assurance-strip { background: var(--plum); color: #e5d7cc; border-top: 1px solid rgba(237,220,204,.12); }
+    .assurances { display: flex; min-height: 92px; align-items: center; justify-content: center; gap: clamp(25px, 5.6vw, 90px); flex-wrap: wrap; padding-block: 23px; }
+    .assurance { display: inline-flex; gap: 12px; align-items: center; font-size: 9px; text-transform: uppercase; font-weight: 600; letter-spacing: .19em; white-space: nowrap; }
+    .assurance span { font: italic 28px var(--serif); color: #bfa078; }
+    /* About */
+    .about { background: var(--cream); }
+    .about-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, .98fr); gap: clamp(42px, 8vw, 124px); align-items: center; }
+    .about-visual { min-height: 545px; position: relative; display: flex; align-items: stretch; }
+    .about-main-image { height: 520px; width: 77%; object-fit: cover; background: var(--plum-3); border-radius: 48% 48% 0 0; }
+    .about-overlap-image { position: absolute; width: 43%; height: 270px; right: 0; bottom: -28px; object-fit: cover; border: 10px solid var(--cream); background: #d0b7aa; }
+    .about-image-stamp { position: absolute; width: 125px; height: 125px; top: -37px; right: 15px; display: flex; flex-direction: column; justify-content: center; align-items: center; border: 1px solid rgba(146,113,84,.32); border-radius: 50%; background: var(--cream); z-index: 2; }
+    .about-image-stamp strong { font: italic 30px/.9 var(--serif); color: #91714d; }
+    .about-image-stamp span { margin-top: 7px; font-size: 7px; text-align: center; font-weight: 700; letter-spacing: .15em; text-transform: uppercase; }
+    .about-copy .section-description { margin-bottom: 30px; }
+    .about-note { border-top: 1px solid var(--line); margin-top: 35px; padding-top: 26px; display: grid; grid-template-columns: 45px 1fr; gap: 15px; }
+    .about-note-icon { color: #a48360; width: 42px; height: 42px; border: 1px solid rgba(164,131,96,.45); border-radius: 50%; display: grid; place-items: center; }
+    .about-note-icon svg { width: 20px; height: 20px; }
+    .about-note h3 { font: 600 17px/1.2 var(--serif); margin: 0 0 5px; }
+    .about-note p { font-size: 12px; color: var(--muted); margin: 0; line-height: 1.85; }
+    /* Experience */
+    .experience { background: #2b232d; color: #fdf7ef; position: relative; overflow: hidden; }
+    .experience::before { content: ""; position: absolute; width: 680px; height: 680px; right: -280px; top: -310px; border-radius: 50%; border: 1px solid rgba(223,197,160,.13); box-shadow: 0 0 0 90px rgba(223,197,160,.023), 0 0 0 180px rgba(223,197,160,.016); }
+    .experience-head { display: flex; justify-content: space-between; align-items: end; gap: 50px; position: relative; }
+    .experience-head h2 { max-width: 610px; }
+    .experience-head p { margin-bottom: 25px; max-width: 355px; color: #d4c8c9; line-height: 2; }
+    .experience .section-title em { color: #e0c399; }
+    .experience-grid { position: relative; margin-top: 68px; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid rgba(231,216,200,.23); border-bottom: 1px solid rgba(231,216,200,.23); }
+    .experience-item { padding: 41px 28px 42px 0; position: relative; }
+    .experience-item + .experience-item { border-left: 1px solid rgba(231,216,200,.16); padding-left: 28px; }
+    .experience-item .count { color: #d8ba8f; font: italic 33px/1 var(--serif); }
+    .experience-item h3 { margin: 30px 0 11px; font: 500 28px/1.1 var(--serif); }
+    .experience-item p { color: #c9bfc2; line-height: 1.85; margin: 0; font-size: 11px; }
+    /* Services */
+    .services { background: var(--paper); }
+    .center-heading { text-align: center; max-width: 740px; margin: 0 auto 56px; }
+    .center-heading .section-description { margin: 0 auto; }
+    .center-heading .eyebrow::after { content: ""; width: 29px; height: 1px; background: currentColor; }
+    .service-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 26px; }
+    .service-card { background: #fff; box-shadow: 0 18px 48px rgba(41,29,34,.055); border: 1px solid #ede7de; min-width: 0; }
+    .service-carousel { position: relative; width: 100%; height: clamp(260px, 26vw, 352px); overflow: hidden; background: #c6b6a7; }
+    .service-slide { position: absolute; inset: 0; opacity: 0; visibility: hidden; transition: opacity .85s ease, visibility .85s; }
+    .service-slide.active { opacity: 1; visibility: visible; }
+    .service-slide img { width: 100%; height: 100%; object-fit: cover; }
+    .service-carousel::after { content: ""; position: absolute; inset: 45% 0 0; background: linear-gradient(transparent, rgba(33,25,33,.30)); pointer-events: none; }
+    .service-index { position: absolute; top: 17px; left: 19px; z-index: 3; padding: 5px 10px; background: rgba(39,30,39,.78); color: white; font-size: 9px; letter-spacing: .14em; }
+    .carousel-dots { position: absolute; bottom: 17px; right: 19px; z-index: 3; display: flex; align-items: center; gap: 7px; }
+    .carousel-dots button { width: 8px; height: 8px; padding: 0; border: 1px solid white; border-radius: 50%; background: transparent; }
+    .carousel-dots button.active { background: white; }
+    .service-body { padding: 30px 29px 27px; }
+    .service-kicker { color: #a0835d; font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: .19em; }
+    .service-body h3 { margin: 9px 0 12px; font: 500 clamp(32px, 3.1vw, 40px)/1.1 var(--serif); letter-spacing: -.02em; }
+    .service-body p { font-size: 11px; color: #746f70; line-height: 1.95; min-height: 89px; margin: 0 0 21px; }
+    .service-price { border-top: 1px solid #eee6dd; display: grid; grid-template-columns: 1fr 1fr; padding-top: 18px; gap: 13px; }
+    .service-price div + div { padding-left: 20px; border-left: 1px solid #eee6dd; }
+    .service-price .time { display: block; font-size: 9px; color: #928780; text-transform: uppercase; letter-spacing: .12em; }
+    .service-price .amount { display: block; font: 500 34px/1.05 var(--serif); color: #3a2b33; margin-top: 4px; }
+    .service-card .service-link { border-top: 1px solid #eee6dd; display: flex; justify-content: space-between; padding: 18px 29px; color: #71543d; font-size: 9px; text-transform: uppercase; font-weight: 700; letter-spacing: .2em; background: #fcf9f5; transition: background .25s; }
+    .service-card .service-link:hover { background: #f4ecdf; }
+    .services-disclaimer { text-align: center; font-size: 10px; color: #827879; margin: 30px auto 0; line-height: 1.8; max-width: 720px; }
+    /* Editorial interlude */
+    .editorial { min-height: 410px; position: relative; display: grid; place-items: center; text-align: center; background: #42343d url('https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg') center 50%/cover no-repeat; color: #fff; padding: 80px 25px; }
+    .editorial::before { content: ""; position: absolute; inset: 0; background: rgba(33,25,34,.70); }
+    .editorial > div { position: relative; max-width: 930px; }
+    .editorial .ornament { color: #d2b28b; font: italic 54px/.8 var(--serif); }
+    .editorial p { font: 400 clamp(38px, 5vw, 65px)/1.15 var(--serif); letter-spacing: -.02em; margin: 20px auto 18px; }
+    .editorial small { font-size: 9px; letter-spacing: .22em; text-transform: uppercase; color: #e9d2b9; font-weight: 700; }
+    /* Atmosphere */
+    .gallery { background: #efe7dd; }
+    .gallery-head { display: flex; align-items: end; justify-content: space-between; gap: 45px; margin-bottom: 43px; }
+    .gallery-head .section-title { max-width: 690px; }
+    .gallery-note { max-width: 360px; font-size: 11px; color: #7e7474; line-height: 1.9; padding-bottom: 13px; }
+    .gallery-grid { display: grid; grid-template-columns: 1.16fr .87fr .87fr; gap: 18px; }
+    .gallery-tile { position: relative; overflow: hidden; min-height: 410px; background: #b6aaab; }
+    .gallery-tile:nth-child(2) { margin-top: 56px; }
+    .gallery-tile:nth-child(3) { margin-top: 112px; }
+    .gallery-tile img { width: 100%; height: 100%; position: absolute; object-fit: cover; transition: transform .8s ease; }
+    .gallery-tile:hover img { transform: scale(1.055); }
+    .gallery-tile::after { content: ""; position: absolute; inset: 55% 0 0; background: linear-gradient(transparent, rgba(30,22,28,.73)); }
+    .gallery-caption { position: absolute; z-index: 1; color: white; left: 25px; bottom: 24px; }
+    .gallery-caption small { display: block; color: #eed1a6; font-size: 9px; letter-spacing: .2em; text-transform: uppercase; font-weight: 700; }
+    .gallery-caption strong { font: 500 28px/1.1 var(--serif); }
+    /* Booking */
+    .booking { background: var(--plum); color: white; }
+    .booking-grid { display: grid; grid-template-columns: minmax(0,.88fr) minmax(0,1.12fr); gap: clamp(35px, 7vw, 105px); align-items: center; }
+    .booking .section-title { color: #fffbf5; }
+    .booking .section-title em { color: #dfbb8e; }
+    .booking-copy p { max-width: 430px; color: #d3c4cc; font-size: 13px; line-height: 2.05; }
+    .booking-facts { margin-top: 44px; display: grid; gap: 23px; }
+    .booking-fact { display: flex; align-items: center; gap: 16px; }
+    .booking-fact-icon { width: 45px; height: 45px; border: 1px solid rgba(211,171,129,.45); flex: 0 0 auto; display: grid; place-items: center; color: #d3ad81; }
+    .booking-fact-icon svg { width: 19px; height: 19px; }
+    .booking-fact small { display: block; font-size: 9px; text-transform: uppercase; letter-spacing: .19em; color: #c6a47d; font-weight: 700; }
+    .booking-fact a, .booking-fact span { font: 500 24px/1.3 var(--serif); }
+    .booking-form-card { background: #fcf8f2; color: var(--ink); padding: clamp(27px, 4vw, 55px); box-shadow: 0 20px 72px rgba(0,0,0,.15); }
+    .booking-form-card h3 { font: 500 38px/1.1 var(--serif); margin: 0 0 9px; }
+    .booking-form-card .form-intro { font-size: 11px; color: var(--muted); margin: 0 0 26px; }
+    .booking-form { display: grid; grid-template-columns: 1fr 1fr; gap: 17px 16px; }
+    .field { min-width: 0; }
+    .field-wide { grid-column: 1 / -1; }
+    .field label { display: block; font-size: 9px; text-transform: uppercase; font-weight: 700; letter-spacing: .15em; margin-bottom: 6px; color: #645760; }
+    .field input, .field select, .field textarea { width: 100%; min-width: 0; display: block; appearance: none; -webkit-appearance: none; border: 1px solid #d9cfc8; border-radius: 0; background: white; color: #40333c; padding: 12px 13px; font-size: 12px; height: 47px; outline: none; transition: border .2s; }
+    .field select { appearance: auto; -webkit-appearance: menulist; }
+    .field textarea { height: 86px; resize: vertical; }
+    .field input:focus, .field textarea:focus, .field select:focus { border-color: #9f7e56; outline: 2px solid rgba(161,124,72,.14); outline-offset: 0; }
+    .field input::placeholder, .field textarea::placeholder { color: #aaa0a1; }
+    .booking-form .btn { width: 100%; border: none; }
+    .form-notice { margin: 0; font-size: 10px; color: #81787a; line-height: 1.75; }
+    .booking-message { margin: 0; padding: 11px 14px; color: #374f3b; background: #e5eee1; font-size: 11px; border-left: 3px solid #8ca080; display: none; }
+    .booking-message.show { display: block; }
+    /* Reviews as clearly labeled demonstration content */
+    .reviews { background: #faf7f2; overflow: hidden; }
+    .reviews .center-heading { margin-bottom: 38px; }
+    .review-warning { background: #f2e8da; padding: 11px 18px; border: 1px solid #e7d9c7; margin: 0 auto 32px; max-width: 850px; text-align: center; color: #746358; font-size: 10px; }
+    .review-marquee { display: flex; overflow: hidden; margin-bottom: 16px; }
+    .review-track { width: max-content; display: flex; align-items: stretch; gap: 16px; animation: review-left 60s linear infinite; }
+    .review-marquee.reverse .review-track { animation-name: review-right; animation-duration: 67s; }
+    .review-marquee:hover .review-track, .review-marquee:focus-within .review-track { animation-play-state: paused; }
+    .review-card { width: 315px; flex: 0 0 315px; min-height: 199px; background: #fff; border: 1px solid #ebdfd3; padding: 25px 26px; }
+    .review-stars { color: #b99565; letter-spacing: 3px; font-size: 14px; line-height: 1; }
+    .review-card p { font: 400 23px/1.25 var(--serif); margin: 17px 0 12px; color: #3a3134; }
+    .review-card small { color: #978477; text-transform: uppercase; letter-spacing: .12em; font-size: 8px; font-weight: 700; }
+    @keyframes review-left { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    @keyframes review-right { from { transform: translateX(-50%); } to { transform: translateX(0); } }
+    /* FAQ */
+    .faq { background: var(--cream); }
+    .faq-grid { display: grid; grid-template-columns: .8fr 1.2fr; gap: clamp(40px,8vw,126px); align-items: start; }
+    .faq-grid .section-description { max-width: 300px; }
+    .faq-list { border-top: 1px solid #d6c8ba; }
+    .faq-item { border-bottom: 1px solid #d6c8ba; }
+    .faq-question { background: none; border: 0; width: 100%; display: flex; align-items: center; justify-content: space-between; text-align: left; gap: 25px; padding: 22px 0; font: 500 26px/1.15 var(--serif); color: #322a2e; }
+    .faq-toggle-icon { display: grid; place-items: center; width: 31px; height: 31px; flex: 0 0 31px; border-radius: 50%; border: 1px solid #aa9170; font: 400 23px/1 var(--serif); color: #8b6b4f; transition: background .25s, transform .25s; }
+    .faq-question[aria-expanded="true"] .faq-toggle-icon { transform: rotate(45deg); background: #d8c3a9; }
+    .faq-answer { padding: 0 55px 22px 0; font-size: 12px; color: var(--muted); line-height: 2; }
+    .faq-answer[hidden] { display: none; }
+    /* Contact */
+    .contact { background: #e9dfd3; padding-block: clamp(85px, 9vw, 130px); }
+    .contact-grid { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(33px, 6vw, 82px); align-items: center; }
+    .contact .section-title { margin-bottom: 30px; }
+    .contact-detail { padding-block: 19px; border-top: 1px solid rgba(67,49,54,.16); display: grid; grid-template-columns: 94px 1fr; gap: 15px; align-items: start; }
+    .contact-detail:last-of-type { border-bottom: 1px solid rgba(67,49,54,.16); }
+    .contact-detail dt { font-size: 9px; font-weight: 700; letter-spacing: .15em; color: #917357; text-transform: uppercase; padding-top: 4px; }
+    .contact-detail dd { margin: 0; font: 500 clamp(19px, 2.3vw, 25px)/1.25 var(--serif); }
+    .contact-detail dd a:hover { text-decoration: underline; text-decoration-color: #b99f7e; }
+    .contact-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 32px; }
+    .map-shell { padding: 10px; background: rgba(255,255,255,.7); box-shadow: 0 18px 50px rgba(60,45,48,.12); }
+    .map-shell iframe { border: 0; width: 100%; height: 484px; display: block; background: #d4ccc5; filter: grayscale(.20) saturate(.8); }
+    .map-caption { padding: 14px 10px 6px; font-size: 10px; color: #64595a; letter-spacing: .025em; }
+    /* Footer */
+    .footer { background: #1e1920; color: #e8d8d2; }
+    .footer-main { padding: 68px 0 43px; display: flex; gap: 45px; align-items: start; justify-content: space-between; border-bottom: 1px solid rgba(235,213,203,.16); }
+    .footer .brand { margin-bottom: 20px; }
+    .footer .brand-name { color: #fffaf4; }
+    .footer-tagline { max-width: 295px; font: italic 27px/1.18 var(--serif); color: #c7ada1; margin: 0; }
+    .footer-links { display: flex; gap: 18px 30px; flex-wrap: wrap; max-width: 420px; padding-top: 20px; }
+    .footer-links a { font-size: 10px; letter-spacing: .07em; color: #ece0da; }
+    .footer-links a:hover { color: var(--gold); }
+    .footer-contact { padding-top: 17px; min-width: 180px; }
+    .footer-contact span { display: block; font-size: 8px; color: var(--gold); text-transform: uppercase; letter-spacing: .2em; font-weight: 700; }
+    .footer-contact a { display: block; font: 500 24px/1.3 var(--serif); margin: 4px 0 13px; }
+    .footer-contact a:hover { color: var(--gold-light); }
+    .footer-contact p { font-size: 10px; color: #b9a8a8; margin: 0; }
+    .footer-bottom { display: flex; justify-content: space-between; gap: 15px; padding: 20px 0 27px; font-size: 9px; color: #a99c9d; line-height: 1.8; }
+    .floating-call { position: fixed; right: 22px; bottom: 24px; z-index: 80; display: none; justify-content: center; align-items: center; height: 55px; width: 55px; border-radius: 50%; background: #cfac7d; color: #2b202a; border: 2px solid #fff6ed; box-shadow: 0 8px 23px rgba(32,20,31,.3); }
+    .floating-call svg { width: 23px; height: 23px; }
+    /* Scroll entrance */
+    .reveal { transition: opacity .75s ease, transform .75s ease; }
+    .js-motion .reveal { opacity: 0; transform: translateY(20px); }
+    .js-motion .reveal.visible { opacity: 1; transform: translateY(0); }
+    /* Tablet */
+    @media (max-width: 1120px) {
+      .nav-links { gap: 14px; }
+      .nav-links a { font-size: 9px; }
+      .nav-call { display: none; }
+      .about-grid { gap: 60px; }
+      .experience-grid { grid-template-columns: repeat(2,1fr); }
+      .experience-item:nth-child(3) { padding-left: 0; border-left: 0; border-top: 1px solid rgba(231,216,200,.16); }
+      .experience-item:nth-child(4) { border-top: 1px solid rgba(231,216,200,.16); }
+      .service-grid { gap: 15px; }
+      .service-body { padding-inline: 21px; }
+      .service-card .service-link { padding-inline: 21px; }
+    }
+    @media (max-width: 880px) {
+      .container { width: min(var(--wrap),calc(100% - 52px)); }
+      .site-header { height: 80px; }
+      .site-header.scrolled, .site-header.menu-open { height: 76px; }
+      .menu-toggle { display: flex; }
+      .nav-links { position: absolute; display: flex; flex-direction: column; align-items: stretch; gap: 0; left: 0; right: 0; top: 100%; padding: 10px 26px 25px; background: #261f2a; box-shadow: 0 25px 35px rgba(0,0,0,.23); max-height: calc(100svh - 76px); overflow: auto; visibility: hidden; opacity: 0; pointer-events: none; transform: translateY(-10px); transition: .22s ease; }
+      .nav-links.open { visibility: visible; opacity: 1; pointer-events: auto; transform: translateY(0); }
+      .nav-links a { padding: 11px 8px; border-bottom: 1px solid rgba(255,255,255,.10); font-size: 12px; }
+      .hero h1 { font-size: clamp(77px, 11vw, 110px); }
+      .about-grid, .booking-grid, .faq-grid, .contact-grid { grid-template-columns: 1fr; }
+      .about-grid { gap: 82px; }
+      .about-visual { max-width: 580px; order: 2; }
+      .about-copy { order: 1; }
+      .experience-head { align-items: start; flex-direction: column; gap: 0; }
+      .experience-head p { max-width: 590px; }
+      .service-grid { grid-template-columns: repeat(2,1fr); }
+      .service-card:last-child { grid-column: 1 / -1; max-width: calc(50% - 8px); margin-inline: auto; width: 100%; }
+      .service-carousel { height: 300px; }
+      .service-body p { min-height: 0; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .gallery-tile { min-height: 365px; }
+      .gallery-tile:nth-child(2) { margin-top: 45px; }
+      .gallery-tile:nth-child(3) { margin-top: 0; }
+      .gallery-head { display: block; }
+      .gallery-note { padding: 0; }
+      .booking-grid { gap: 45px; }
+      .booking-facts { margin-top: 25px; }
+      .contact-grid { gap: 45px; }
+      .map-shell iframe { height: 400px; }
+      .floating-call { display: flex; }
+    }
+    @media (max-width: 620px) {
+      html { scroll-padding-top: 76px; }
+      .container { width: calc(100% - 36px); }
+      .section-space { padding-block: 78px; }
+      .section-title { font-size: clamp(50px, 12.4vw, 70px); }
+      .brand { gap: 9px; min-width: 0; }
+      .brand-mark { width: 37px; height: 37px; }
+      .brand-name { font-size: 23px; }
+      .brand-type { font-size: 7px; }
+      .hero { min-height: max(700px, 100svh); }
+      .hero::after { width: 76vw; top: 25%; right: -38vw; }
+      .hero-shade { background: linear-gradient(90deg, rgba(25,19,27,.87), rgba(25,19,27,.53)), linear-gradient(0deg,rgba(20,15,23,.66),transparent 45%); }
+      .hero-content { padding-top: 90px; padding-bottom: 149px; }
+      .hero h1 { font-size: clamp(65px, 16.4vw, 94px); max-width: 100%; margin: 24px 0; }
+      .hero-blurb { font-size: 12px; max-width: 350px; }
+      .hero-actions { margin-top: 30px; gap: 10px; }
+      .hero-actions .btn { padding: 14px 15px; min-height: 48px; font-size: 9px; }
+      .hero-meta .container { align-items: end; }
+      .hero-meta-info { display: block; }
+      .hero-meta-item + .hero-meta-item { margin-top: 10px; }
+      .hero-meta-item .key { font-size: 8px; }
+      .hero-meta-item .value { font-size: 10px; }
+      .hero-progress { padding-bottom: 10px; }
+      .hero-progress button { width: 14px; }
+      .hero-progress button.active { width: 25px; }
+      .assurances { justify-content: flex-start; gap: 13px 23px; }
+      .assurance { font-size: 8px; }
+      .assurance span { font-size: 23px; }
+      .about-visual { min-height: 430px; }
+      .about-main-image { height: 425px; }
+      .about-overlap-image { bottom: -18px; height: 215px; border-width: 6px; }
+      .about-image-stamp { right: 0; top: -30px; width: 95px; height: 95px; }
+      .about-image-stamp strong { font-size: 25px; }
+      .about-image-stamp span { font-size: 6px; }
+      .experience-grid { margin-top: 37px; }
+      .experience-item { padding: 30px 12px 30px 0; }
+      .experience-item + .experience-item { padding-left: 15px; }
+      .experience-item:nth-child(3) { padding-left: 0; }
+      .experience-item h3 { font-size: 25px; margin-top: 18px; }
+      .experience-item p { font-size: 10px; }
+      .center-heading { margin-bottom: 36px; }
+      .service-grid { grid-template-columns: 1fr; gap: 22px; }
+      .service-card:last-child { grid-column: auto; max-width: none; }
+      .service-carousel { height: 300px; }
+      .service-body { padding: 27px; }
+      .service-card .service-link { padding-inline: 27px; }
+      .editorial { min-height: 335px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .gallery-tile { min-height: 280px; }
+      .gallery-tile:nth-child(2) { margin-top: 32px; }
+      .gallery-tile:nth-child(3) { margin-top: 0; grid-column: 1 / -1; height: 305px; }
+      .gallery-caption { left: 15px; bottom: 14px; }
+      .gallery-caption strong { font-size: 23px; }
+      .gallery-caption small { font-size: 7px; }
+      .booking-form-card { padding: 27px 21px; }
+      .booking-form { grid-template-columns: 1fr; }
+      .booking-form .field { grid-column: 1 / -1; }
+      .review-card { width: 280px; flex-basis: 280px; }
+      .faq-question { font-size: 24px; padding: 20px 0; }
+      .contact-detail { grid-template-columns: 78px 1fr; gap: 8px; }
+      .map-shell iframe { height: 330px; }
+      .footer-main, .footer-bottom { display: block; }
+      .footer-links { padding-top: 33px; }
+      .footer-contact { padding-top: 29px; }
+      .footer-bottom p + p { margin-top: 9px; }
+    }
+    @media (max-width: 390px) {
+      .hero h1 { font-size: 61px; }
+      .hero-actions { flex-direction: column; align-items: start; }
+      .hero-actions .btn { min-width: 175px; }
+      .assurances { gap: 13px; }
+      .assurance { letter-spacing: .08em; }
+      .about-visual { min-height: 355px; }
+      .about-main-image { height: 353px; }
+      .about-overlap-image { height: 185px; }
+      .experience-item h3 { font-size: 22px; }
+      .gallery-tile { min-height: 235px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <!-- All service imagery below is illustrative; it is not presented as photos of this venue. -->
+  <header class="site-header" id="siteHeader">
+    <div class="container nav-wrap">
+      <a class="brand" href="#home" aria-label="Hong Hong Spa home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.1">
+            <path d="M18 17C12 10 12 6 18 2c6 4 6 8 0 15Zm1 1c7-6 11-6 15 0-4 6-8 6-15 0Zm-1 1c6 7 6 11 0 15-6-4-6-8 0-15Zm-1-1C10 24 6 24 2 18c4-6 8-6 15 0Z"/><circle cx="18" cy="18" r="2.5"/>
+          </svg>
+        </span>
+        <span><span class="brand-name">Hong Hong</span><span class="brand-type">SPA & WELLNESS</span></span>
+      </a>
+      <nav class="nav-links" id="mainNav" aria-label="Main navigation">
+        <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#contact">Contact</a>
+      </nav>
+      <a class="nav-call" href="tel:+19549318616" aria-label="Call Hong Hong Spa at 954-931-8616">CALL (954) 931-8616</a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-label="Open navigation" aria-controls="mainNav" aria-expanded="false">
+        <svg id="menuOpenIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HOME / HERO -->
+    <section class="hero" id="home" aria-labelledby="heroTitle">
+      <div class="hero-slides" aria-hidden="true">
+        <div class="hero-slide active" style="background-image:url('https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('https://i.pinimg.com/736x/a4/c5/f0/a4c5f0fb2704f75aa94a247e18a4af14.jpg')"></div>
+        <div class="hero-slide" style="background-image:url('https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg')"></div>
+      </div>
+      <div class="hero-shade"></div>
+      <div class="container hero-content">
+        <span class="eyebrow eyebrow-light">A pause for yourself · Fort Lauderdale, FL</span>
+        <h1 id="heroTitle">Where the world<br><em>slows down.</em></h1>
+        <p class="hero-blurb">Unplug from the noise, settle into the moment, and make a little room for yourself. Discover a quieter kind of escape at Hong Hong Spa.</p>
+        <div class="hero-actions">
+          <a href="#booking" class="btn btn-gold">Book Your Moment <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 12h15m-6-6 6 6-6 6"/></svg></a>
+          <a href="#services" class="btn btn-outline-light">Explore Services</a>
+        </div>
+      </div>
+      <div class="hero-meta">
+        <div class="container">
+          <div class="hero-meta-info">
+            <div class="hero-meta-item"><span class="key">Visit Us</span><span class="value">2975B W Commercial Blvd, Fort Lauderdale</span></div>
+            <div class="hero-meta-item"><span class="key">Opening Hours</span><span class="value">9:00 AM – 10:00 PM</span></div>
+          </div>
+          <div class="hero-progress" id="heroDots" aria-label="Hero photo slideshow">
+            <button type="button" class="active" aria-label="Show hero photo 1" aria-pressed="true"></button>
+            <button type="button" aria-label="Show hero photo 2" aria-pressed="false"></button>
+            <button type="button" aria-label="Show hero photo 3" aria-pressed="false"></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="assurance-strip" aria-label="Our approach">
+      <div class="container assurances">
+        <div class="assurance"><span>✦</span> A little more calm</div>
+        <div class="assurance"><span>✧</span> Your time to unwind</div>
+        <div class="assurance"><span>✦</span> Easy phone booking</div>
+        <div class="assurance"><span>✧</span> A thoughtful pause</div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <section class="about section-space" id="about" aria-labelledby="aboutTitle">
+      <div class="container about-grid">
+        <div class="about-visual reveal">
+          <img class="about-main-image" loading="lazy" src="https://i.pinimg.com/736x/4c/2b/cb/4c2bcb39fbc7189277e8e505c2e1bc8f.jpg" alt="Illustrative massage and relaxation atmosphere">
+          <img class="about-overlap-image" loading="lazy" src="https://i.pinimg.com/736x/85/e4/e0/85e4e0455458e84ff5b39582cf45a340.jpg" alt="Illustrative close-up of massage experience">
+          <div class="about-image-stamp" aria-hidden="true"><strong>HH</strong><span>Find your<br>stillness</span></div>
+        </div>
+        <div class="about-copy reveal">
+          <span class="eyebrow">A softer way to spend your day</span>
+          <h2 class="section-title" id="aboutTitle">Time that feels <em>like yours.</em></h2>
+          <p class="section-description">At Hong Hong Spa, our intention is simple: make space to disconnect from the demands of everyday life. The experience is centered on a welcoming atmosphere, mindful pacing, and moments of genuine rest.</p>
+          <p class="section-description">Whether you're coming in after a full workday or taking a pause from a busy schedule, we invite you to arrive as you are and leave the outside world at the door.</p>
+          <div class="about-note">
+            <div class="about-note-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M12 22C5 18 4 13 4 9c4 0 7 2 8 6 1-4 4-6 8-6 0 4-1 9-8 13Z"/><path d="M12 15c-4-4-4-7 0-12 4 5 4 8 0 12Z"/></svg></div>
+            <div><h3>Space to slow down</h3><p>A gentle invitation to relax, reconnect with yourself, and enjoy a little peace in the middle of your day.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="experience section-space" id="experience" aria-labelledby="experienceTitle">
+      <div class="container">
+        <div class="experience-head reveal">
+          <div><span class="eyebrow eyebrow-light">The Hong Hong philosophy</span><h2 class="section-title" id="experienceTitle">Beauty in the<br><em>little moments.</em></h2></div>
+          <p>Thoughtful details and a slower rhythm can turn an ordinary break into a welcome ritual of rest.</p>
+        </div>
+        <div class="experience-grid reveal">
+          <div class="experience-item"><span class="count">01</span><h3>A calm arrival</h3><p>Leave the rush at the door and give yourself a moment to settle in.</p></div>
+          <div class="experience-item"><span class="count">02</span><h3>Your own pace</h3><p>Choose a session length that fits the pause you need in your day.</p></div>
+          <div class="experience-item"><span class="count">03</span><h3>Mindful comfort</h3><p>A relaxation-focused experience shaped around feeling at ease.</p></div>
+          <div class="experience-item"><span class="count">04</span><h3>A softer finish</h3><p>Take the peaceful feeling with you as you return to the world.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES: user asked for examples of common massage services -->
+    <section class="services section-space" id="services" aria-labelledby="servicesTitle">
+      <div class="container">
+        <div class="center-heading reveal"><span class="eyebrow">The art of relaxation</span><h2 class="section-title" id="servicesTitle">Choose your <em>moment.</em></h2><p class="section-description">A selection of familiar massage styles to explore. Please call to confirm which services are currently available and their pricing.</p></div>
+        <div class="service-grid">
+          <article class="service-card reveal">
+            <div class="service-carousel" data-carousel="body" aria-label="Body work image slideshow">
+              <div class="service-slide active"><img src="https://i.pinimg.com/1200x/dc/36/fe/dc36feaf9cc11bec29cc3de7834c539e.jpg" loading="lazy" alt="Illustrative body work massage scene"></div>
+              <div class="service-slide"><img src="https://i.pinimg.com/736x/21/8f/4c/218f4cd988ca278667bd28ff54a577ff.jpg" loading="lazy" alt="Illustrative body work massage session"></div>
+              <div class="service-slide"><img src="https://i.pinimg.com/736x/f6/33/48/f6334826491861572c8e532a6a099cdc.jpg" loading="lazy" alt="Illustrative body work therapy image"></div>
+              <span class="service-index">01 / 03</span><div class="carousel-dots" aria-label="Body work photo selection"></div>
+            </div>
+            <div class="service-body"><span class="service-kicker">Unwind & recharge</span><h3>Body Work</h3><p>A classic body-focused experience to help you unwind from everyday tension and enjoy a much-needed break.</p><div class="service-price"><div><span class="time">30 minutes</span><span class="amount">$50</span></div><div><span class="time">60 minutes</span><span class="amount">$80</span></div></div></div>
+            <a class="service-link" href="#booking"><span>Enquire About This Service</span><span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-carousel" data-carousel="deep" aria-label="Deep tissue massage image slideshow">
+              <div class="service-slide active"><img src="https://i.pinimg.com/736x/86/47/ef/8647ef5b51553a8e57ca32e6b2ec74f0.jpg" loading="lazy" alt="Illustrative deep tissue massage scene"></div>
+              <div class="service-slide"><img src="https://i.pinimg.com/736x/a4/c5/f0/a4c5f0fb2704f75aa94a247e18a4af14.jpg" loading="lazy" alt="Illustrative deep tissue massage pressure technique"></div>
+              <div class="service-slide"><img src="https://i.pinimg.com/1200x/cb/a2/38/cba2382cc3ca28d467b85d939121c8ef.jpg" loading="lazy" alt="Illustrative deep tissue massage session"></div>
+              <span class="service-index">01 / 03</span><div class="carousel-dots" aria-label="Deep tissue photo selection"></div>
+            </div>
+            <div class="service-body"><span class="service-kicker">Focused & deliberate</span><h3>Deep Tissue Massage</h3><p>For those who prefer a firmer, more targeted style when everyday routines leave muscles feeling tight.</p><div class="service-price"><div><span class="time">30 minutes</span><span class="amount">$50</span></div><div><span class="time">60 minutes</span><span class="amount">$80</span></div></div></div>
+            <a class="service-link" href="#booking"><span>Enquire About This Service</span><span aria-hidden="true">↗</span></a>
+          </article>
+          <article class="service-card reveal">
+            <div class="service-carousel" data-carousel="feet" aria-label="Foot reflexology image slideshow">
+              <div class="service-slide active"><img src="https://i.pinimg.com/1200x/6a/df/fe/6adffe5706bdce88dd2d2d0fc6875398.jpg" loading="lazy" alt="Illustrative foot reflexology massage treatment"></div>
+              <div class="service-slide"><img src="https://i.pinimg.com/1200x/71/a4/b7/71a4b75a19fbadf33bc6dc340e91340c.jpg" loading="lazy" alt="Illustrative foot massage and reflexology"></div>
+              <div class="service-slide"><img src="https://i.pinimg.com/736x/76/48/7c/76487c07076e4b41fcce7c4ea35e2005.jpg" loading="lazy" alt="Illustrative foot reflexology session"></div>
+              <span class="service-index">01 / 03</span><div class="carousel-dots" aria-label="Foot reflexology photo selection"></div>
+            </div>
+            <div class="service-body"><span class="service-kicker">A moment from the ground up</span><h3>Foot Reflexology</h3><p>A foot-focused pause that can feel especially welcome after long days standing, walking, or traveling.</p><div class="service-price"><div><span class="time">30 minutes</span><span class="amount">$50</span></div><div><span class="time">60 minutes</span><span class="amount">$80</span></div></div></div>
+            <a class="service-link" href="#booking"><span>Enquire About This Service</span><span aria-hidden="true">↗</span></a>
+          </article>
+        </div>
+        <p class="services-disclaimer">Service types shown are suggested examples, not a confirmed menu. The supplied session rates are $50 for 30 minutes and $80 for 60 minutes; please verify availability and applicable pricing by phone.</p>
+      </div>
+    </section>
+
+    <section class="editorial" aria-label="Wellness inspiration">
+      <div class="reveal"><div class="ornament" aria-hidden="true">✧</div><p>“A little time for yourself<br>can change the tone of your day.”</p><small>Slow down · breathe easy · begin again</small></div>
+    </section>
+
+    <!-- GALLERY / ALL IMAGES ILLUSTRATIVE -->
+    <section class="gallery section-space" id="gallery" aria-labelledby="galleryTitle">
+      <div class="container">
+        <div class="gallery-head reveal"><div><span class="eyebrow">A glimpse of the feeling</span><h2 class="section-title" id="galleryTitle">The luxury of <em>slowing down.</em></h2></div><p class="gallery-note">These editorial images illustrate massage and relaxation styles; they are not photographs of the Hong Hong Spa location.</p></div>
+        <div class="gallery-grid reveal">
+          <div class="gallery-tile"><img loading="lazy" src="https://i.pinimg.com/736x/97/dc/96/97dc9699bc6c850ecd8776eaee3b7898.jpg" alt="Illustrative body work image"><div class="gallery-caption"><small>Pause 01</small><strong>Let go of the day</strong></div></div>
+          <div class="gallery-tile"><img loading="lazy" src="https://i.pinimg.com/736x/85/e4/e0/85e4e0455458e84ff5b39582cf45a340.jpg" alt="Illustrative deep tissue massage image"><div class="gallery-caption"><small>Pause 02</small><strong>Find your rhythm</strong></div></div>
+          <div class="gallery-tile"><img loading="lazy" src="https://i.pinimg.com/736x/19/1e/83/191e837a24d9e5efd7f015539b78c373.jpg" alt="Illustrative foot reflexology image"><div class="gallery-caption"><small>Pause 03</small><strong>Feel a little lighter</strong></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BOOKING -->
+    <section class="booking section-space" id="booking" aria-labelledby="bookingTitle">
+      <div class="container booking-grid">
+        <div class="booking-copy reveal"><span class="eyebrow eyebrow-light">Your invitation to unwind</span><h2 class="section-title" id="bookingTitle">Make room for <em>yourself.</em></h2><p>Some moments are better when they aren't rushed. Start planning your visit here, then give us a call to confirm the appointment.</p>
+          <div class="booking-facts">
+            <div class="booking-fact"><div class="booking-fact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="m6 2 4 4-2.5 3c1.8 3.4 4.1 5.7 7.5 7.5l3-2.5 4 4-3 4C9.5 23.5.5 14.5 2 5l4-3Z"/></svg></div><div><small>Call to book</small><a href="tel:+19549318616">(954) 931-8616</a></div></div>
+            <div class="booking-fact"><div class="booking-fact-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="12" cy="12" r="9"/><path d="M12 6v7l4 2"/></svg></div><div><small>Opening hours</small><span>9:00 AM – 10:00 PM</span></div></div>
+          </div>
+        </div>
+        <div class="booking-form-card reveal">
+          <h3>Plan your visit</h3><p class="form-intro">Prepare your preferred appointment details to share when you call.</p>
+          <form class="booking-form" id="bookingForm">
+            <div class="field"><label for="guestName">Your name</label><input id="guestName" name="guestName" type="text" autocomplete="name" placeholder="Full name" required></div>
+            <div class="field"><label for="guestPhone">Phone number</label><input id="guestPhone" name="guestPhone" type="tel" autocomplete="tel" placeholder="(555) 000-0000" required></div>
+            <div class="field"><label for="serviceChoice">Preferred service</label><select id="serviceChoice" name="serviceChoice" required><option value="" disabled selected>Select a service</option><option>Body Work</option><option>Deep Tissue Massage</option><option>Foot Reflexology</option></select></div>
+            <div class="field"><label for="durationChoice">Session length</label><select id="durationChoice" name="durationChoice" required><option value="" disabled selected>Select duration</option><option value="30 minutes ($50)">30 minutes · $50</option><option value="60 minutes ($80)">60 minutes · $80</option></select></div>
+            <div class="field"><label for="preferredDate">Preferred date</label><input id="preferredDate" name="preferredDate" type="date" required></div>
+            <div class="field"><label for="preferredTime">Preferred time</label><input id="preferredTime" name="preferredTime" type="time" required></div>
+            <div class="field field-wide"><label for="guestNotes">A note for your visit (optional)</label><textarea id="guestNotes" name="guestNotes" placeholder="Anything you'd like to ask or mention?"></textarea></div>
+            <div class="field-wide"><button type="submit" class="btn btn-gold">Copy Your Request <span aria-hidden="true">↗</span></button></div>
+            <p class="field-wide form-notice">This form does not send or reserve an appointment. It copies your details so you can share them when you call <a href="tel:+19549318616" style="text-decoration:underline">(954) 931-8616</a>. Availability is confirmed by phone.</p>
+            <p class="field-wide booking-message" id="bookingMessage" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ILLUSTRATIVE REVIEW PLACEHOLDERS: never portray as verified customer reviews -->
+    <section class="reviews section-space" id="reviews" aria-labelledby="reviewsTitle">
+      <div class="center-heading reveal container"><span class="eyebrow">The feeling we hope to inspire</span><h2 class="section-title" id="reviewsTitle">Words about <em>wellness.</em></h2><p class="section-description">A preview of how guest stories could look on the finished website.</p></div>
+      <div class="container review-warning">DISPLAY SAMPLES ONLY — The quotations below are fictional layout examples, not actual Hong Hong Spa customer reviews. Replace them with verified feedback before publishing.</div>
+      <div class="review-marquee" aria-label="Illustrative customer review examples, row one">
+        <div class="review-track">
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“A peaceful break from a very busy week.”</p><small>Fictional sample · not verified</small></div>
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“I loved taking a little time just for myself.”</p><small>Fictional sample · not verified</small></div>
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“Exactly the kind of calm I was looking for.”</p><small>Fictional sample · not verified</small></div>
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“A lovely reminder to slow down once in a while.”</p><small>Fictional sample · not verified</small></div>
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“A restful moment in the middle of the day.”</p><small>Fictional sample · not verified</small></div>
+        </div>
+      </div>
+      <div class="review-marquee reverse" aria-label="Illustrative customer review examples, row two">
+        <div class="review-track">
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“Sometimes the best plan is to do less.”</p><small>Fictional sample · not verified</small></div>
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“A nice way to make space for self-care.”</p><small>Fictional sample · not verified</small></div>
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“The kind of relaxing pause I needed.”</p><small>Fictional sample · not verified</small></div>
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“An easy reminder to put rest on the calendar.”</p><small>Fictional sample · not verified</small></div>
+          <div class="review-card"><div class="review-stars" aria-hidden="true">★★★★★</div><p>“A quiet hour feels like a little luxury.”</p><small>Fictional sample · not verified</small></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq section-space" id="faq" aria-labelledby="faqTitle">
+      <div class="container faq-grid">
+        <div class="reveal"><span class="eyebrow">Before you visit</span><h2 class="section-title" id="faqTitle">Good to <em>know.</em></h2><p class="section-description">A few helpful answers so you can focus on what matters: making time for yourself.</p><a href="tel:+19549318616" class="btn btn-outline-dark" style="margin-top:23px">Still Have Questions? Call Us</a></div>
+        <div class="faq-list reveal">
+          <div class="faq-item"><h3 style="margin:0"><button type="button" class="faq-question" id="faq-q1" aria-expanded="true" aria-controls="faq-a1">How early should I arrive?<span class="faq-toggle-icon" aria-hidden="true">+</span></button></h3><div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1">Arriving a few minutes before your preferred appointment time can help you settle in comfortably. Please call for any specific arrival instructions.</div></div>
+          <div class="faq-item"><h3 style="margin:0"><button type="button" class="faq-question" id="faq-q2" aria-expanded="false" aria-controls="faq-a2">Can I get a massage if I have an injury?<span class="faq-toggle-icon" aria-hidden="true">+</span></button></h3><div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2" hidden>If you have a recent injury, pain, or a medical condition, speak with a qualified healthcare professional first. Contact the spa before scheduling to discuss whether a massage appointment is suitable.</div></div>
+          <div class="faq-item"><h3 style="margin:0"><button type="button" class="faq-question" id="faq-q3" aria-expanded="false" aria-controls="faq-a3">What is your cancellation policy?<span class="faq-toggle-icon" aria-hidden="true">+</span></button></h3><div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3" hidden>Please ask about current cancellation or rescheduling terms when booking by phone. If your plans change, contact us as early as possible.</div></div>
+          <div class="faq-item"><h3 style="margin:0"><button type="button" class="faq-question" id="faq-q4" aria-expanded="false" aria-controls="faq-a4">Is there parking available?<span class="faq-toggle-icon" aria-hidden="true">+</span></button></h3><div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4" hidden>Parking availability has not been confirmed. Please call (954) 931-8616 for the most accurate parking and arrival information.</div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="contact" id="contact" aria-labelledby="contactTitle">
+      <div class="container contact-grid">
+        <div class="reveal"><span class="eyebrow">Come find your quiet</span><h2 class="section-title" id="contactTitle">We'd love to <em>hear from you.</em></h2>
+          <dl>
+            <div class="contact-detail"><dt>Address</dt><dd>2975B W Commercial Blvd<br>Fort Lauderdale, FL 33309</dd></div>
+            <div class="contact-detail"><dt>Phone</dt><dd><a href="tel:+19549318616">(954) 931-8616</a></dd></div>
+            <div class="contact-detail"><dt>Hours</dt><dd>9:00 AM – 10:00 PM<br><span style="font:400 11px var(--sans);color:#766a66">Please call to confirm holiday hours.</span></dd></div>
+          </dl>
+          <div class="contact-actions"><a href="tel:+19549318616" class="btn btn-gold">Call Us Now ↗</a><a class="btn btn-outline-dark" href="https://www.google.com/maps/dir/?api=1&amp;destination=2975B%20W%20Commercial%20Blvd%2C%20Fort%20Lauderdale%2C%20FL%2033309" target="_blank" rel="noopener noreferrer">Get Directions ↗</a></div>
+        </div>
+        <div class="map-shell reveal"><iframe title="Google Map showing Hong Hong Spa address in Fort Lauderdale, Florida" src="https://www.google.com/maps?q=2975B%20W%20Commercial%20Blvd%2C%20Fort%20Lauderdale%2C%20FL%2033309&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe><div class="map-caption">HONG HONG SPA <span aria-hidden="true">·</span> 2975B W COMMERCIAL BLVD, FORT LAUDERDALE, FL 33309</div></div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container footer-main">
+      <div><a class="brand" href="#home" aria-label="Hong Hong Spa back to top"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none" stroke="currentColor" stroke-width="1.1"><path d="M18 17C12 10 12 6 18 2c6 4 6 8 0 15Zm1 1c7-6 11-6 15 0-4 6-8 6-15 0Zm-1 1c6 7 6 11 0 15Zm-1-1C10 24 6 24 2 18c4-6 8-6 15 0Z"/><circle cx="18" cy="18" r="2.5"/></svg></span><span><span class="brand-name">Hong Hong</span><span class="brand-type">SPA & WELLNESS</span></span></a><p class="footer-tagline">A little more peace, whenever you need it.</p></div>
+      <nav class="footer-links" aria-label="Footer navigation"><a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a><a href="#experience">Experience</a><a href="#gallery">Gallery</a><a href="#reviews">Reviews</a><a href="#faq">FAQ</a><a href="#booking">Booking</a><a href="#contact">Contact</a></nav>
+      <div class="footer-contact"><span>Call &amp; visit</span><a href="tel:+19549318616">(954) 931-8616</a><p>9:00 AM - 10:00 PM</p></div>
+    </div>
+    <div class="container footer-bottom"><p>© <span id="year">2026</span> Hong Hong Spa. All rights reserved.</p><p>Editorial photography is illustrative. Service selection is provisional; please call to confirm details.</p></div>
+  </footer>
+  <a class="floating-call" href="tel:+19549318616" aria-label="Call Hong Hong Spa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="m6 2 4 4-2.5 3c1.8 3.4 4.1 5.7 7.5 7.5l3-2.5 4 4-3 4C9.5 23.5.5 14.5 2 5l4-3Z"/></svg></a>
+  <script>
+    /* =========================================================
+       Lightweight interactions: sticky header, mobile navigation,
+       hero & service photo carousels, FAQ, and booking copy tool
+       ========================================================= */
+    (function () {
+      'use strict';
+      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const header = document.getElementById('siteHeader');
+      const toggle = document.getElementById('menuToggle');
+      const nav = document.getElementById('mainNav');
+      const refreshHeader = () => header.classList.toggle('scrolled', window.scrollY > 35);
+      window.addEventListener('scroll', refreshHeader, { passive: true });
+      refreshHeader();
+
+      function setMenu(open) {
+        nav.classList.toggle('open', open);
+        header.classList.toggle('menu-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close navigation' : 'Open navigation');
+        toggle.innerHTML = open
+          ? '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M5 5l14 14M19 5 5 19"/></svg>'
+          : '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>';
+      }
+      toggle.addEventListener('click', () => setMenu(!nav.classList.contains('open')));
+      nav.querySelectorAll('a').forEach(link => link.addEventListener('click', () => setMenu(false)));
+      document.addEventListener('keydown', event => { if (event.key === 'Escape') setMenu(false); });
+      document.addEventListener('click', event => { if (!header.contains(event.target)) setMenu(false); });
+      window.addEventListener('resize', () => { if (window.innerWidth > 880) setMenu(false); });
+
+      /* Hero rotation */
+      const heroSlides = Array.from(document.querySelectorAll('.hero-slide'));
+      const heroDots = Array.from(document.querySelectorAll('#heroDots button'));
+      let heroIndex = 0;
+      function showHero(index) {
+        heroIndex = (index + heroSlides.length) % heroSlides.length;
+        heroSlides.forEach((slide, i) => slide.classList.toggle('active', i === heroIndex));
+        heroDots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === heroIndex);
+          dot.setAttribute('aria-pressed', String(i === heroIndex));
+        });
+      }
+      heroDots.forEach((dot, i) => dot.addEventListener('click', () => showHero(i)));
+      if (!prefersReducedMotion && heroSlides.length > 1) {
+        setInterval(() => { if (!document.hidden) showHero(heroIndex + 1); }, 7000);
+      }
+
+      /* Per-service photo rotation with accessible selection controls */
+      document.querySelectorAll('[data-carousel]').forEach((carousel, carouselIndex) => {
+        const slides = Array.from(carousel.querySelectorAll('.service-slide'));
+        const dotsParent = carousel.querySelector('.carousel-dots');
+        const indexTag = carousel.querySelector('.service-index');
+        let currentIndex = 0;
+        let paused = false;
+        let dots = [];
+        function goTo(nextIndex) {
+          currentIndex = (nextIndex + slides.length) % slides.length;
+          slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === currentIndex);
+            slide.setAttribute('aria-hidden', String(i !== currentIndex));
+          });
+          dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === currentIndex);
+            dot.setAttribute('aria-pressed', String(i === currentIndex));
+          });
+          if (indexTag) indexTag.textContent = String(currentIndex + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
+        }
+        slides.forEach((_, i) => {
+          const dot = document.createElement('button');
+          dot.type = 'button';
+          dot.setAttribute('aria-label', 'Show photo ' + (i + 1) + ' of ' + slides.length + ' for service ' + (carouselIndex + 1));
+          dot.addEventListener('click', () => goTo(i));
+          dotsParent.appendChild(dot);
+          dots.push(dot);
+        });
+        goTo(0);
+        carousel.addEventListener('mouseenter', () => { paused = true; });
+        carousel.addEventListener('mouseleave', () => { paused = false; });
+        carousel.addEventListener('focusin', () => { paused = true; });
+        carousel.addEventListener('focusout', () => { paused = false; });
+        if (!prefersReducedMotion && slides.length > 1) {
+          setInterval(() => { if (!paused && !document.hidden) goTo(currentIndex + 1); }, 4700 + carouselIndex * 380);
+        }
+      });
+
+      /* Scroll appearance, with functional fallback for older browsers */
+      const revealed = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window && !prefersReducedMotion) {
+        const observer = new IntersectionObserver(entries => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.09 });
+        revealed.forEach(item => observer.observe(item));
+      } else revealed.forEach(item => item.classList.add('visible'));
+
+      /* Reviews are mockups: duplicate only for the seamless marquee effect */
+      document.querySelectorAll('.review-track').forEach(track => {
+        Array.from(track.children).forEach(item => {
+          const clone = item.cloneNode(true);
+          clone.setAttribute('aria-hidden', 'true');
+          track.appendChild(clone);
+        });
+      });
+
+      /* Accessible accordion - one expanded panel at a time */
+      const faqButtons = Array.from(document.querySelectorAll('.faq-question'));
+      faqButtons.forEach(button => button.addEventListener('click', () => {
+        const willOpen = button.getAttribute('aria-expanded') !== 'true';
+        faqButtons.forEach(other => {
+          const open = other === button && willOpen;
+          other.setAttribute('aria-expanded', String(open));
+          document.getElementById(other.getAttribute('aria-controls')).hidden = !open;
+        });
+      }));
+
+      /* Local-only booking request; this never contacts a server */
+      const dateInput = document.getElementById('preferredDate');
+      const today = new Date();
+      const localToday = [today.getFullYear(), String(today.getMonth() + 1).padStart(2, '0'), String(today.getDate()).padStart(2, '0')].join('-');
+      dateInput.min = localToday;
+      const bookingForm = document.getElementById('bookingForm');
+      const bookingMessage = document.getElementById('bookingMessage');
+      bookingForm.addEventListener('submit', async (event) => {
+        event.preventDefault();
+        if (!bookingForm.reportValidity()) return;
+        const data = new FormData(bookingForm);
+        const message = [
+          'Hong Hong Spa - Appointment Request (not yet confirmed)',
+          'Name: ' + data.get('guestName'),
+          'Phone: ' + data.get('guestPhone'),
+          'Service: ' + data.get('serviceChoice'),
+          'Session: ' + data.get('durationChoice'),
+          'Preferred date: ' + data.get('preferredDate'),
+          'Preferred time: ' + data.get('preferredTime'),
+          'Notes: ' + (data.get('guestNotes') || 'None'),
+          'Please confirm availability and current services by phone: (954) 931-8616'
+        ].join('\n');
+        try {
+          if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
+          await navigator.clipboard.writeText(message);
+          bookingMessage.textContent = 'Your request details have been copied. Please call (954) 931-8616 to confirm your visit; no booking has been submitted.';
+        } catch (error) {
+          const temp = document.createElement('textarea');
+          temp.value = message;
+          temp.setAttribute('aria-label', 'Your booking request details');
+          temp.style.cssText = 'position:absolute;left:-9999px;top:0;';
+          document.body.appendChild(temp);
+          temp.select();
+          let copied = false;
+          try { copied = document.execCommand('copy'); } catch (_) {}
+          temp.remove();
+          if (copied) {
+            bookingMessage.textContent = 'Your request details have been copied. Please call (954) 931-8616 to confirm; no appointment has been submitted.';
+          } else {
+            bookingMessage.textContent = 'Copying is unavailable in this browser. Please call (954) 931-8616 to share your preferences and arrange an appointment.';
+          }
+        }
+        bookingMessage.classList.add('show');
+      });
+
+      document.getElementById('year').textContent = String(new Date().getFullYear());
+    })();
+  </script>
+</body>
+</html>
